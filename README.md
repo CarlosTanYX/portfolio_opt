@@ -36,7 +36,7 @@ supply real tickers -- requires `yfinance` and an internet connection.
 
 ## What to expect
 ![efficient_frontier_graph](efficient_frontier.png)
-<strong>Figure<strong>: Efficient frontier graph with tickers = ["COP", "BJRI", "EVH", "PLMR"]
+<strong>Figure</strong>: Efficient frontier graph with tickers = ["COP", "BJRI", "EVH", "PLMR"]
 
 `efficient_frontier.png` shows the classic Markowitz picture: a cloud
 of randomly-weighted portfolios, and a curved red line (the efficient
