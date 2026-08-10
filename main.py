@@ -83,9 +83,9 @@ print()
 print(
     f"Rolling backtest ({summary['n_windows']} windows, 250-day train / 60-day test):")
 print("  Optimised -> mean daily return:", round(summary["optimised_mean_return"], 6),
-      " volatility:", round(summary["optimised_volatility"], 6))
+      " volatility:", round(summary["optimised_volatility"], 6), " overall return:", round(summary["opt_cumulative"][-1], 4))
 print("  Naive     -> mean daily return:", round(summary["naive_mean_return"], 6),
-      " volatility:", round(summary["naive_volatility"], 6))
+      " volatility:", round(summary["naive_volatility"], 6), " overall return:", round(summary["naive_cumulative"][-1], 4))
 print("  Optimised beat naive in", round(summary["optimised_win_rate"] * 100, 1),
       "% of windows")
 
