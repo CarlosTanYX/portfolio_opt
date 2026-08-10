@@ -44,3 +44,8 @@ frontier) tracing its upper-left boundary -- the best possible
 risk/return trade-off achievable from this set of assets. The black
 star marks the global minimum-variance portfolio.
 
+The graph is plotted for randomly selected tickers, from 1st Jan 2020 to 1st July 2026; COP: ConocoPhillips, an oil and gas company; 
+BJRI: BJ's Restaurant's, Inc., a casual dining restaurant operator; EVH: Evolent Health, Inc., a healthcare
+technology company; PLMR: Palomar Holdings, Inc., an insurance provider.
+
+
