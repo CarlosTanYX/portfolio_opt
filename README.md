@@ -36,7 +36,7 @@ supply real tickers -- requires `yfinance` and an internet connection.
 
 ## What to expect
 
-![efficient_frontier_graph](efficient_frontier.png)
+![efficient_frontier_update](efficient_frontier.png)
 
 `efficient_frontier.png` shows the classic Markowitz picture: a cloud
 of randomly-weighted portfolios, and a curved red line (the efficient
@@ -46,7 +46,7 @@ star marks the global minimum-variance portfolio.
 
 ## Backtesting
 
-![rolling_backtest](rolling_backtest.png)
+![rolling_backtest_update](rolling_backtest.png)
 
 `rolling_backtest.png` shows the results of backtesting the optimally
 weighted solution against a 1/N weighted strategy (portfolio is divided
