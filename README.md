@@ -1,7 +1,7 @@
 # Markowitz Portfolio Optimisation
 
 Closed-form mean-variance portfolio optimisation, following Harry
-Markowitz's 1952 "Portfolio Selection" -- solved via matrix algebra
+Markowitz's 1952 "Portfolio Selection" solved with matrix algebra
 (Lagrange multipliers).
 
 ## Structure
@@ -35,9 +35,6 @@ real data, uncomment the `load_prices(...)` line in `main.py` and
 supply real tickers -- requires `yfinance` and an internet connection.
 
 ## What to expect
-
-![efficient_frontier_graph](efficient_frontier.png)
-<strong>Figure</strong>: Efficient frontier graph with tickers = ["COP", "BJRI", "EVH", "PLMR"]
 
 ![efficient_frontier_graph](efficient_frontier.png)
 
