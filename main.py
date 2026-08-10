@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from portfolio.data import simulate_prices
 from portfolio.data import load_prices
 from portfolio.stats import compute_returns, expected_returns, covariance_matrix
-from portfolio.optimizer import (
+from portfolio.optimiser import (
     min_variance_portfolio,
     efficient_frontier,
     random_portfolios,
@@ -34,7 +34,7 @@ print("Assets:", list(prices.columns))
 print("Expected annual returns:", np.round(mu, 4))
 print()
 
-# ---- 3. run the optimizer ----
+# ---- 3. run the optimiser ----
 w_minvar = min_variance_portfolio(cov)
 print("Minimum-variance portfolio weights:", np.round(w_minvar, 4))
 print("  -> expected return:", round(portfolio_return(w_minvar, mu), 4))
