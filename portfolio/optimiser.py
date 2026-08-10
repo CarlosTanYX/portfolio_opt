@@ -1,5 +1,5 @@
 """
-optimizer.py
+optimiser.py
 
 The actual Markowitz mean-variance math -- solved in closed form via
 matrix algebra (Lagrange multipliers). Solve for optimum by inverting the matrix.
@@ -105,7 +105,7 @@ def efficient_frontier(mu, cov, n_points=50):
 
 def random_portfolios(mu, cov, n_portfolios=2000, seed=42):
     """
-    Randomly sampled (not optimized) portfolio weights, used purely for
+    Randomly sampled (not optimised) portfolio weights, used purely for
     comparison. Plotting these alongside the efficient frontier is
     what makes the frontier's curved shape visually obvious: random
     portfolios form a cloud, and the frontier traces its upper-left

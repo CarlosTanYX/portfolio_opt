@@ -13,16 +13,17 @@ import matplotlib.pyplot as plt
 from portfolio.data import simulate_prices
 from portfolio.data import load_prices
 from portfolio.stats import compute_returns, expected_returns, covariance_matrix
-from portfolio.optimizer import (
+from portfolio.optimiser import (
     min_variance_portfolio,
     efficient_frontier,
     random_portfolios,
     portfolio_return,
     portfolio_variance,
 )
+from portfolio.backtest import backtest, rolling_backtest, summarise_rolling_backtest
 
 # ---- 1. get price data ----
-prices = simulate_prices(n_assets=4, n_days=500)
+prices = simulate_prices(n_assets=4, n_days=600)
 # prices = load_prices(["COP", "BJRI", "EVH", "PLMR"], start="2020-01-01", end="2026-07-01")
 
 # ---- 2. process raw data ----
@@ -34,7 +35,7 @@ print("Assets:", list(prices.columns))
 print("Expected annual returns:", np.round(mu, 4))
 print()
 
-# ---- 3. run the optimizer ----
+# ---- 3. run the optimiser ----
 w_minvar = min_variance_portfolio(cov)
 print("Minimum-variance portfolio weights:", np.round(w_minvar, 4))
 print("  -> expected return:", round(portfolio_return(w_minvar, mu), 4))
@@ -64,3 +65,39 @@ plt.legend()
 plt.tight_layout()
 plt.savefig("efficient_frontier.png", dpi=150)
 print("Saved plot to efficient_frontier.png")
+
+# ---- 5. backtest ----
+result = backtest(prices, train_days=250, test_days=60)
+print()
+print("Backtest (train on first 250 days, test on next 60 days):")
+print("  Optimised -> mean daily return:", round(result["optimised_mean_return"], 6),
+      " volatility:", round(result["optimised_volatility"], 6))
+print("  Naive     -> mean daily return:", round(result["naive_mean_return"], 6),
+      " volatility:", round(result["naive_volatility"], 6))
+
+# ---- 6. rolling backtest ----
+windows = rolling_backtest(prices, train_days=250, test_days=60)
+summary = summarise_rolling_backtest(windows)
+
+print()
+print(
+    f"Rolling backtest ({summary['n_windows']} windows, 250-day train / 60-day test):")
+print("  Optimised -> mean daily return:", round(summary["optimised_mean_return"], 6),
+      " volatility:", round(summary["optimised_volatility"], 6))
+print("  Naive     -> mean daily return:", round(summary["naive_mean_return"], 6),
+      " volatility:", round(summary["naive_volatility"], 6))
+print("  Optimised beat naive in", round(summary["optimised_win_rate"] * 100, 1),
+      "% of windows")
+
+plt.figure(figsize=(9, 6))
+plt.plot(summary["opt_cumulative"],
+         label="Optimised (min-variance)", color="red")
+plt.plot(summary["naive_cumulative"],
+         label="Naive (equal-weight)", color="gray")
+plt.xlabel("Trading day (out-of-sample, concatenated across windows)")
+plt.ylabel("Growth of $1")
+plt.title("Rolling Backtest: Optimised vs. Naive, Out-of-Sample")
+plt.legend()
+plt.tight_layout()
+plt.savefig("rolling_backtest.png", dpi=150)
+print("Saved plot to rolling_backtest.png")
