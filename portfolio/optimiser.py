@@ -1,11 +1,11 @@
 """
-optimizer.py
+optimiser.py
 
 The actual Markowitz mean-variance math -- solved in closed form via
 matrix algebra (Lagrange multipliers). Solve for optimum by inverting the matrix.
 
 Problem being solved:
-    minimize   w^T Sigma w                  (portfolio variance)
+    minimise   w^T Sigma w                  (portfolio variance)
     subject to w^T mu = target_return       (hit a specific expected return)
                w^T 1 = 1                    (weights sum to 1 -- fully invested)
 """
@@ -23,7 +23,7 @@ def portfolio_variance(w, cov):
 def min_variance_portfolio(cov):
     """
     The GLOBAL minimum-variance portfolio -- ignores expected return
-    entirely, just finds the weights that minimize risk as long as 
+    entirely, just finds the weights that minimise risk as long as 
     portfolio is fully invested (w^T 1 = 1). 
     Closed form:       w = (Sigma^-1 1) / (1^T Sigma^-1 1)
     from solving the Lagrangian: 
@@ -105,11 +105,11 @@ def efficient_frontier(mu, cov, n_points=50):
 
 def random_portfolios(mu, cov, n_portfolios=2000, seed=42):
     """
-    Randomly sampled (not optimized) portfolio weights, used purely for
-    comparison. Plotting these alongside the efficient frontier is
-    what makes the frontier's curved shape visually obvious: random
-    portfolios form a cloud, and the frontier traces its upper-left
-    boundary (least risk for a given return).
+    Randomly sampled (not optimised) portfolio weights, used purely for
+    comparison. Plotting these alongside the efficient frontier makes 
+    its curved shape visually obvious: random portfolios form 
+    a cloud, and the frontier traces its upper-left boundary (least risk 
+    for a given return).
     """
     rng = np.random.default_rng(seed)
     n = cov.shape[0]
