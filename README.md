@@ -10,7 +10,7 @@ Markowitz's 1952 "Portfolio Selection", solved with Lagrange multipliers.
   the optimiser without network access
 - `portfolio/stats.py` -- processed prices data into returns, an
   expected-return vector, and a covariance matrix
-- `portfolio/optimizer.py` -- Markowitz math: the global minimum-
+- `portfolio/optimiser.py` -- Markowitz math: the global minimum-
   variance portfolio, the efficient frontier (swept via the
   two-fund separation closed form), and random portfolios for
   comparison
