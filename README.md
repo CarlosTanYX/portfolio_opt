@@ -1,8 +1,8 @@
-# Markowitz Portfolio Optimization
+# Markowitz Portfolio Optimisation
 
 Closed-form mean-variance portfolio optimisation, following Harry
 Markowitz's 1952 "Portfolio Selection" -- solved via matrix algebra
-(Lagrange multipliers), not an iterative solver.
+(Lagrange multipliers).
 
 ## Structure
 
@@ -29,12 +29,15 @@ pip install -r requirements.txt
 python3 main.py
 ```
 
-By default this uses simulated price data (`simulate_prices` in
+By default, this uses simulated price data (`simulate_prices` in
 `data.py`), so it works immediately with no internet access. To use
 real data, uncomment the `load_prices(...)` line in `main.py` and
 supply real tickers -- requires `yfinance` and an internet connection.
 
 ## What to expect
+
+![efficient_frontier_graph](efficient_frontier.png)
+<strong>Figure</strong>: Efficient frontier graph with tickers = ["COP", "BJRI", "EVH", "PLMR"]
 
 ![efficient_frontier_graph](efficient_frontier.png)
 
