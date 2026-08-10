@@ -23,7 +23,7 @@ from portfolio.optimiser import (
 from portfolio.backtest import backtest, rolling_backtest, summarise_rolling_backtest
 
 # ---- 1. get price data ----
-prices = simulate_prices(n_assets=4, n_days=600)
+prices = simulate_prices(n_assets=4, n_days=3000)
 # prices = load_prices(["COP", "BJRI", "EVH", "PLMR"], start="2020-01-01", end="2026-07-01")
 
 # ---- 2. process raw data ----
