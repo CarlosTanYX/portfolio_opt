@@ -35,7 +35,8 @@ real data, uncomment the `load_prices(...)` line in `main.py` and
 supply real tickers -- requires `yfinance` and an internet connection.
 
 ## What to expect
-
+![efficient_frontier_graph](efficient_frontier.png)
+<small>Fig: Efficient frontier graph with tickers = ["COP", "BJRI", "EVH", "PLMR"]</small>
 
 `efficient_frontier.png` shows the classic Markowitz picture: a cloud
 of randomly-weighted portfolios, and a curved red line (the efficient
