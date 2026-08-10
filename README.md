@@ -48,6 +48,6 @@ star marks the global minimum-variance portfolio.
 
 ![rolling_backtest](rolling_backtest.png)
 
-'rolling_backtest.png' shows the results of backtesting the optimally
+`rolling_backtest.png` shows the results of backtesting the optimally
 weighted solution against a 1/N weighted strategy (portfolio is divided
 equally into each asset). Testing showed that the optimal portfolio' returns outperformed the naive solution 80% of the time.
